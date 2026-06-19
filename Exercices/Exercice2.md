@@ -4,6 +4,6 @@ Déterminer la fréquence propre d'une masse M suspendue à une structure. La ri
 
 **Cas : Structure sur appuis simples.**
 
-![Figure 1](figure1.png)
+![Figure 1](../Figures/Ex2.png)
 
 *(Note: La figure 1 sera ajoutée ultérieurement dans le dépôt GitHub.)*
