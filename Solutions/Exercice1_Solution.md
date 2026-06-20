@@ -6,7 +6,7 @@ On considère un système mécanique élémentaire constitué d’une masse $m$,
 
 L’équation différentielle du mouvement, obtenue par application du principe fondamental de la dynamique, s’écrit :
 
-$$ m \ddot{x} + c \dot{x} + k x = 0 \tag{1} $$
+$$ \begin{aligned} m \ddot{x} \\ + c \dot{x} \\ + k x = 0 \end{aligned} \tag{1} $$
 
 On introduit la pulsation propre non amortie $\omega_0 = \sqrt{k / m}$ et le facteur d’amortissement réduit $\xi = c / (2 m \omega_0)$. L’équation (1) se réduit alors à la forme canonique :
 
