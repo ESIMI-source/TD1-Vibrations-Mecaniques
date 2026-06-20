@@ -301,7 +301,7 @@ Cette écriture fait apparaître explicitement les deux constantes d’intégrat
 
 Afin de visualiser les différences qualitatives entre les régimes, on peut superposer les réponses $x(t)$ pour les trois cas ($0 < \xi < 1$, $\xi = 1$ et $\xi > 1$), pour des conditions initiales identiques, par exemple $x_0 > 0$ et $\dot{x}_0 = 0$.
 
-[Figure 1 : Évolution temporelle du déplacement pour les trois régimes d’amortissement (..Figures/Ex1Sol.png).]
+[Figure 1 : Évolution temporelle du déplacement pour les trois régimes d’amortissement (../Figures/Ex1Sol.png).]
 Description sommaire : la courbe correspondant à $\xi < 1$ présente des oscillations d’amplitude décroissante ; la courbe $\xi = 1$ décroît rapidement sans oscillation ; la courbe $\xi > 1$ décroît plus lentement que la précédente et ne présente pas non plus d’oscillation.
 
 
