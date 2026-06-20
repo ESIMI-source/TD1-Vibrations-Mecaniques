@@ -1,97 +1,349 @@
-# Solution de l'Exercice 1
+# Corrigé de l'exercice 1 : Vibrations libres amorties d’un système à un degré de liberté
 
-Cet exercice demande de démontrer les expressions du déplacement pour un système à un degré de liberté (1DDL) en vibrations libres amorties, spécifiquement pour les cas d'amortissement critique ($\xi = 1$) et sur-amorti ($\xi > 1$), en fonction des conditions initiales $x(0) = x_0$ et $\dot{x}(0) = \dot{x}_0$.
+## 1. Contexte physique et modélisation
 
-L'équation différentielle du mouvement pour un système 1DDL en vibrations libres amorties est :
+On considère un système mécanique élémentaire constitué d’une masse ponctuelle $m$, reliée à un bâti fixe par un ressort de raideur $k$ et un amortisseur visqueux de coefficient $c$. Le déplacement de la masse est repéré par la coordonnée $x(t)$, mesurée à partir de la position d’équilibre statique.
 
-$$m\ddot{x} + c\dot{x} + kx = 0$$
+L’énergie cinétique du système est $T = \frac{1}{2} m \dot{x}^2$, l’énergie potentielle élastique est $V = \frac{1}{2} k x^2$, et la fonction de dissipation de Rayleigh est $D = \frac{1}{2} c \dot{x}^2$. L’application du principe fondamental de la dynamique ou de l’équation de Lagrange conduit à l’équation différentielle du mouvement :
 
-En divisant par la masse $m$ et en introduisant la pulsation propre non amortie $\omega_0 = \sqrt{k/m}$ et le taux d'amortissement $\xi = c/(2m\omega_0)$, l'équation devient :
+$$
+m \ddot{x} + c \dot{x} + k x = 0
+\tag{1}
+$$
 
-$$\ddot{x} + 2\xi \omega_0 \dot{x} + \omega_0^2 x = 0$$
+En divisant par la masse $m$ et en introduisant les grandeurs caractéristiques suivantes :
 
-La solution de cette équation dépend de la valeur du taux d'amortissement $\xi$.
+- pulsation propre non amortie : $\omega_0 = \sqrt{\frac{k}{m}}$,
+- facteur d’amortissement réduit : $\xi = \frac{c}{2 m \omega_0}$,
 
-## Cas 1 : Amortissement Critique ($\xi = 1$)
+l’équation (1) se met sous la forme canonique :
 
-Lorsque le système est à amortissement critique, le taux d'amortissement $\xi = 1$. L'équation caractéristique de l'équation différentielle est :
+$$
+\ddot{x} + 2 \xi \omega_0 \dot{x} + \omega_0^2 x = 0
+\tag{2}
+$$
 
-$$r^2 + 2\omega_0 r + \omega_0^2 = 0$$
+Le paramètre $\xi$ est adimensionnel ; sa valeur détermine qualitativement le régime vibratoire. On distingue classiquement les trois cas suivants :
 
-Cette équation a une racine réelle double : $r_{1,2} = -\omega_0$.
+- si $0 < \xi < 1$ : régime sous-amorti (oscillations amorties) ;
+- si $\xi = 1$ : régime critique ;
+- si $\xi > 1$ : régime sur-amorti (apériodique).
 
-La solution générale du déplacement $x(t)$ est alors de la forme :
+L’objectif de cet exercice est d’établir les expressions du déplacement $x(t)$ pour les deux derniers régimes, en fonction des conditions initiales $x(0) = x_0$ et $\dot{x}(0) = \dot{x}_0$.
 
-$$x(t) = (A + Bt) e^{-\omega_0 t}$$
+---
 
-Pour déterminer les constantes $A$ et $B$, nous utilisons les conditions initiales :
+## 2. Équation caractéristique et structure générale de la solution
 
-1.  **Déplacement initial** : $x(0) = x_0$
-    En substituant $t=0$ dans l'expression de $x(t)$ :
-    $$x_0 = (A + B \cdot 0) e^{-\omega_0 \cdot 0} \implies x_0 = A$$
-    Donc, $A = x_0$.
+Pour résoudre l’équation différentielle linéaire homogène (2), on cherche des solutions de la forme $x(t) = e^{r t}$. La substitution dans (2) fournit l’équation caractéristique :
 
-2.  **Vitesse initiale** : $\dot{x}(0) = \dot{x}_0$
-    D'abord, dérivons $x(t)$ par rapport au temps $t$ :
-    $$\dot{x}(t) = B e^{-\omega_0 t} - \omega_0 (A + Bt) e^{-\omega_0 t}$$
-    $$\dot{x}(t) = e^{-\omega_0 t} [B - \omega_0 (A + Bt)]$$
-    En substituant $t=0$ :
-    $$\dot{x}_0 = e^0 [B - \omega_0 (A + B \cdot 0)] \implies \dot{x}_0 = B - \omega_0 A$$
-    En substituant $A = x_0$ :
-    $$\dot{x}_0 = B - \omega_0 x_0 \implies B = \dot{x}_0 + \omega_0 x_0$$
+$$
+r^2 + 2 \xi \omega_0 r + \omega_0^2 = 0
+\tag{3}
+$$
 
-En substituant les valeurs de $A$ et $B$ dans la solution générale :
+Le discriminant de cette équation du second degré est :
 
-$$x(t) = (x_0 + (\dot{x}_0 + \omega_0 x_0)t) e^{-\omega_0 t}$$
+$$
+\Delta = 4 \omega_0^2 (\xi^2 - 1)
+\tag{4}
+$$
 
-En réarrangeant les termes :
+Les deux racines sont donc :
 
-$$x(t) = e^{-\omega_0 t} [x_0 + \dot{x}_0 t + \omega_0 x_0 t]$$
+$$
+r_{1,2} = -\xi \omega_0 \pm \omega_0 \sqrt{\xi^2 - 1}
+\tag{5}
+$$
 
-$$x(t) = e^{-\omega_0 t} [x_0 (1 + \omega_0 t) + \dot{x}_0 t]$$
+La nature de ces racines dépend directement de $\xi$, ce qui justifie l’étude séparée des cas $\xi = 1$ et $\xi > 1$.
 
-Ceci démontre la première expression.
+---
 
-## Cas 2 : Amortissement Sur-amorti ($\xi > 1$)
+## 3. Régime critique ($\xi = 1$)
 
-Lorsque le système est sur-amorti, le taux d'amortissement $\xi > 1$. L'équation caractéristique $r^2 + 2\xi \omega_0 r + \omega_0^2 = 0$ a deux racines réelles distinctes :
+### 3.1. Racines de l’équation caractéristique
 
-$$r_{1,2} = -\xi \omega_0 \pm \omega_0 \sqrt{\xi^2 - 1}$$
+Lorsque $\xi = 1$, l’équation caractéristique (3) devient :
 
-Pour simplifier, on définit la pulsation $\omega_d = \omega_0 \sqrt{\xi^2 - 1}$. Notez que cette $\omega_d$ est réelle pour $\xi > 1$.
+$$
+r^2 + 2 \omega_0 r + \omega_0^2 = (r + \omega_0)^2 = 0
+$$
 
-Donc, les racines sont $r_{1,2} = -\xi \omega_0 \pm \omega_d$.
+Le discriminant est nul et la racine est double :
 
-La solution générale du déplacement $x(t)$ est alors de la forme :
+$$
+r_{1,2} = -\omega_0
+\tag{6}
+$$
 
-$$x(t) = C_1 e^{(-\xi \omega_0 + \omega_d)t} + C_2 e^{(-\xi \omega_0 - \omega_d)t}$$
+### 3.2. Forme de la solution générale
 
-Cette expression peut être réécrite en utilisant les fonctions hyperboliques $\cosh(u) = (e^u + e^{-u})/2$ et $\sinh(u) = (e^u - e^{-u})/2$ :
+Pour une racine double $r$, la solution générale de l’équation différentielle s’écrit :
 
-$$x(t) = e^{-\xi \omega_0 t} (A \cosh(\omega_d t) + B \sinh(\omega_d t))$$
+$$
+x(t) = (A + B t) e^{-\omega_0 t}
+\tag{7}
+$$
 
-Pour déterminer les constantes $A$ et $B$, nous utilisons les conditions initiales :
+où $A$ et $B$ sont des constantes d’intégration à déterminer à l’aide des conditions initiales.
 
-1.  **Déplacement initial** : $x(0) = x_0$
-    En substituant $t=0$ dans l'expression de $x(t)$ :
-    $$x_0 = e^0 (A \cosh(0) + B \sinh(0)) \implies x_0 = A \cdot 1 + B \cdot 0 \implies x_0 = A$$
-    Donc, $A = x_0$.
+### 3.3. Détermination des constantes
 
-2.  **Vitesse initiale** : $\dot{x}(0) = \dot{x}_0$
-    D'abord, dérivons $x(t)$ par rapport au temps $t$ :
-    $$\dot{x}(t) = -\xi \omega_0 e^{-\xi \omega_0 t} (A \cosh(\omega_d t) + B \sinh(\omega_d t)) + e^{-\xi \omega_0 t} (A \omega_d \sinh(\omega_d t) + B \omega_d \cosh(\omega_d t))$$
-    $$\dot{x}(t) = e^{-\xi \omega_0 t} [-\xi \omega_0 (A \cosh(\omega_d t) + B \sinh(\omega_d t)) + A \omega_d \sinh(\omega_d t) + B \omega_d \cosh(\omega_d t)]$$
-    En substituant $t=0$ :
-    $$\dot{x}_0 = e^0 [-\xi \omega_0 (A \cosh(0) + B \sinh(0)) + A \omega_d \sinh(0) + B \omega_d \cosh(0)]$$
-    $$\dot{x}_0 = [-\xi \omega_0 (A \cdot 1 + B \cdot 0) + A \omega_d \cdot 0 + B \omega_d \cdot 1]$$
-    $$\dot{x}_0 = -\xi \omega_0 A + B \omega_d$$
-    En substituant $A = x_0$ :
-    $$\dot{x}_0 = -\xi \omega_0 x_0 + B \omega_d$$
-    $$\dot{x}_0 + \xi \omega_0 x_0 = B \omega_d$$
-    $$B = \frac{\dot{x}_0 + \xi \omega_0 x_0}{\omega_d}$$
+La condition initiale sur le déplacement donne, en évaluant (7) en $t = 0$ :
 
-En substituant les valeurs de $A$ et $B$ dans la solution générale :
+$$
+x(0) = A = x_0
+\tag{8}
+$$
 
-$$x(t) = e^{-\xi \omega_0 t} [x_0 \cosh(\omega_d t) + \frac{\dot{x}_0 + \xi \omega_0 x_0}{\omega_d} \sinh(\omega_d t)]$$
+La vitesse s’obtient en dérivant (7) par rapport au temps :
 
-Ceci démontre la deuxième expression. Il est important de noter que la pulsation $\omega_d$ est ici définie comme $\omega_d = \omega_0 \sqrt{\xi^2 - 1}$ pour le cas sur-amorti, ce qui est différent de la pulsation pseudo-périodique pour le cas sous-amorti (où $\omega_d = \omega_0 \sqrt{1 - \xi^2}$).
+$$
+\dot{x}(t) = B e^{-\omega_0 t} - \omega_0 (A + B t) e^{-\omega_0 t}
+= e^{-\omega_0 t} \bigl[ B - \omega_0 (A + B t) \bigr]
+\tag{9}
+$$
+
+En $t = 0$, on a :
+
+$$
+\dot{x}(0) = B - \omega_0 A = \dot{x}_0
+$$
+
+Compte tenu de (8), on en déduit :
+
+$$
+B = \dot{x}_0 + \omega_0 x_0
+\tag{10}
+$$
+
+### 3.4. Expression finale du déplacement
+
+En reportant (8) et (10) dans (7), on obtient :
+
+$$
+x(t) = \bigl( x_0 + (\dot{x}_0 + \omega_0 x_0) t \bigr) e^{-\omega_0 t}
+$$
+
+soit, après réorganisation :
+
+$$
+\boxed{ x(t) = e^{-\omega_0 t} \bigl[ x_0 (1 + \omega_0 t) + \dot{x}_0 t \bigr] }
+\tag{11}
+$$
+
+Cette expression constitue la solution pour le régime critique.
+
+---
+
+## 4. Régime sur-amorti ($\xi > 1$)
+
+### 4.1. Racines et introduction de $\omega_d$
+
+Pour $\xi > 1$, le discriminant (4) est strictement positif. Les deux racines sont réelles et distinctes. On pose :
+
+$$
+\omega_d = \omega_0 \sqrt{\xi^2 - 1} > 0
+\tag{12}
+$$
+
+Les racines (5) s’écrivent alors :
+
+$$
+r_1 = -\xi \omega_0 + \omega_d, \qquad r_2 = -\xi \omega_0 - \omega_d
+\tag{13}
+$$
+
+Ces deux racines sont strictement négatives, car $\xi \omega_0 > \omega_d$ (puisque $\xi > \sqrt{\xi^2 - 1}$ pour tout $\xi > 1$). La solution générale est donc :
+
+$$
+x(t) = C_1 e^{r_1 t} + C_2 e^{r_2 t}
+= e^{-\xi \omega_0 t} \left( C_1 e^{\omega_d t} + C_2 e^{-\omega_d t} \right)
+\tag{14}
+$$
+
+### 4.2. Réécriture à l’aide des fonctions hyperboliques
+
+Afin de faciliter l’interprétation physique et l’application des conditions initiales, on exprime la combinaison linéaire d’exponentielles à l’aide des fonctions hyperboliques, définies par :
+
+$$
+\cosh u = \frac{e^u + e^{-u}}{2}, \qquad \sinh u = \frac{e^u - e^{-u}}{2}
+\tag{15}
+$$
+
+On pose alors :
+
+$$
+x(t) = e^{-\xi \omega_0 t} \bigl( A \cosh(\omega_d t) + B \sinh(\omega_d t) \bigr)
+\tag{16}
+$$
+
+Les constantes $A$ et $B$ sont reliées aux constantes $C_1$ et $C_2$ par les relations $A = C_1 + C_2$ et $B = C_1 - C_2$.
+
+### 4.3. Détermination des constantes
+
+La condition $x(0) = x_0$ donne, en évaluant (16) en $t = 0$ :
+
+$$
+x_0 = e^0 \bigl( A \cosh(0) + B \sinh(0) \bigr) = A
+$$
+
+d’où :
+
+$$
+A = x_0
+\tag{17}
+$$
+
+Pour la vitesse, on dérive (16). On utilise les dérivées usuelles :
+
+$$
+\frac{d}{dt} \bigl( \cosh(\omega_d t) \bigr) = \omega_d \sinh(\omega_d t), \qquad
+\frac{d}{dt} \bigl( \sinh(\omega_d t) \bigr) = \omega_d \cosh(\omega_d t)
+$$
+
+On obtient :
+
+$$
+\begin{aligned}
+\dot{x}(t) &= -\xi \omega_0 e^{-\xi \omega_0 t} \bigl( A \cosh(\omega_d t) + B \sinh(\omega_d t) \bigr) \\
+&\quad + e^{-\xi \omega_0 t} \bigl( A \omega_d \sinh(\omega_d t) + B \omega_d \cosh(\omega_d t) \bigr) \\
+&= e^{-\xi \omega_0 t} \Bigl[ (-\xi \omega_0 A + \omega_d B) \cosh(\omega_d t) + (-\xi \omega_0 B + \omega_d A) \sinh(\omega_d t) \Bigr]
+\end{aligned}
+\tag{18}
+$$
+
+En évaluant (18) en $t = 0$, il vient :
+
+$$
+\dot{x}(0) = -\xi \omega_0 A + \omega_d B = \dot{x}_0
+$$
+
+En substituant $A = x_0$, on trouve :
+
+$$
+\omega_d B = \dot{x}_0 + \xi \omega_0 x_0
+$$
+
+d’où :
+
+$$
+B = \frac{\dot{x}_0 + \xi \omega_0 x_0}{\omega_d}
+\tag{19}
+$$
+
+### 4.4. Expression finale du déplacement
+
+En reportant (17) et (19) dans (16), on obtient la solution pour le régime sur-amorti :
+
+$$
+\boxed{ x(t) = e^{-\xi \omega_0 t} \left[ x_0 \cosh(\omega_d t) + \frac{\dot{x}_0 + \xi \omega_0 x_0}{\omega_d} \sinh(\omega_d t) \right] }
+\tag{20}
+$$
+
+où $\omega_d = \omega_0 \sqrt{\xi^2 - 1}$.
+
+---
+
+## 5. Commentaires physiques et mathématiques
+
+### 5.1. Comparaison des deux régimes
+
+Dans les deux cas, le terme exponentiel $e^{-\alpha t}$ (avec $\alpha = \omega_0$ pour le cas critique et $\alpha = \xi \omega_0$ pour le cas sur-amorti) assure la décroissance vers zéro lorsque $t \to +\infty$. Le système ne présente aucune oscillation, ce qui distingue ces régimes du cas sous-amorti.
+
+Dans le régime critique, l’absence d’oscillation est associée à une racine double. Mathématiquement, la présence du facteur $(1 + \omega_0 t)$ dans (11) est la signature de cette dégénérescence. Physiquement, l’amortissement critique réalise le retour le plus rapide à la position d’équilibre sans dépassement.
+
+Dans le régime sur-amorti, les deux racines réelles négatives correspondent à deux modes de décroissance exponentielle. Le mode le plus lent (associé à $r_1 = -\xi \omega_0 + \omega_d$) domine aux temps longs. Lorsque $\xi$ augmente, $\omega_d$ se rapproche de $\xi \omega_0$, et le terme dominant $e^{(-\xi \omega_0 + \omega_d)t}$ décroît d’autant plus lentement. Ainsi, un amortissement excessif ralentit paradoxalement le retour à l’équilibre.
+
+### 5.2. Cas particuliers
+
+Les expressions (11) et (20) se simplifient dans deux cas limites fréquents.
+
+- **Déplacement initial non nul, vitesse initiale nulle** ($\dot{x}_0 = 0$). Pour le régime critique :
+
+$$
+x(t) = x_0 (1 + \omega_0 t) e^{-\omega_0 t}
+$$
+
+Pour le régime sur-amorti :
+
+$$
+x(t) = x_0 e^{-\xi \omega_0 t} \left[ \cosh(\omega_d t) + \frac{\xi \omega_0}{\omega_d} \sinh(\omega_d t) \right]
+$$
+
+- **Déplacement initial nul, vitesse initiale non nulle** ($x_0 = 0$). Pour le régime critique :
+
+$$
+x(t) = \dot{x}_0 t e^{-\omega_0 t}
+$$
+
+Pour le régime sur-amorti :
+
+$$
+x(t) = \frac{\dot{x}_0}{\omega_d} e^{-\xi \omega_0 t} \sinh(\omega_d t)
+$$
+
+### 5.3. Lien entre les deux formulations (exponentielle et hyperbolique)
+
+La formulation hyperbolique (20) est strictement équivalente à la formulation exponentielle (14). En effet, en développant (20) à l’aide des définitions (15), on retrouve :
+
+$$
+x(t) = \frac{1}{2} \left( x_0 + \frac{\dot{x}_0 + \xi \omega_0 x_0}{\omega_d} \right) e^{(-\xi \omega_0 + \omega_d)t}
++ \frac{1}{2} \left( x_0 - \frac{\dot{x}_0 + \xi \omega_0 x_0}{\omega_d} \right) e^{(-\xi \omega_0 - \omega_d)t}
+$$
+
+Cette écriture fait apparaître explicitement les deux constantes d’intégration $C_1$ et $C_2$.
+
+---
+
+## 6. Représentations graphiques
+
+Afin de visualiser les différences qualitatives entre les régimes, on peut superposer les réponses $x(t)$ pour les trois cas ($0 < \xi < 1$, $\xi = 1$ et $\xi > 1$), pour des conditions initiales identiques, par exemple $x_0 > 0$ et $\dot{x}_0 = 0$.
+
+[Figure 1 : Évolution temporelle du déplacement pour les trois régimes d’amortissement (à générer ultérieurement).]
+Description sommaire : la courbe correspondant à $\xi < 1$ présente des oscillations d’amplitude décroissante ; la courbe $\xi = 1$ décroît rapidement sans oscillation ; la courbe $\xi > 1$ décroît plus lentement que la précédente et ne présente pas non plus d’oscillation.
+
+[Figure 2 : Allure des racines $r_1$ et $r_2$ en fonction de $\xi$ (à générer ultérieurement).]
+Description sommaire : pour $\xi = 0$, les racines sont imaginaires pures ; pour $0 < \xi < 1$, elles sont complexes conjuguées à partie réelle négative ; pour $\xi = 1$, elles sont confondues sur l’axe réel négatif ; pour $\xi > 1$, elles sont réelles, distinctes et négatives.
+
+Les codes de génération de ces figures peuvent être fournis sur demande, dans le langage de votre choix (Python/Matplotlib, GNU Octave, etc.).
+
+---
+
+## 7. Synthèse des résultats
+
+Le tableau ci-dessous récapitule les principaux résultats pour les régimes critique et sur-amorti, auxquels on adjoint le régime sous-amorti à titre de comparaison.
+
+| Régime | Condition sur $\xi$ | Racines | Solution $x(t)$ | Comportement |
+|--------|---------------------|---------|-----------------|--------------|
+| Sous-amorti | $0 < \xi < 1$ | complexes conjuguées : $-\xi \omega_0 \pm i \omega_0 \sqrt{1-\xi^2}$ | $e^{-\xi \omega_0 t} [ x_0 \cos(\omega_d t) + \frac{\dot{x}_0 + \xi \omega_0 x_0}{\omega_d} \sin(\omega_d t) ]$ avec $\omega_d = \omega_0 \sqrt{1-\xi^2}$ | oscillations amorties |
+| Critique | $\xi = 1$ | réelle double : $-\omega_0$ | $e^{-\omega_0 t} [ x_0 (1 + \omega_0 t) + \dot{x}_0 t ]$ | retour le plus rapide sans oscillation |
+| Sur-amorti | $\xi > 1$ | réelles distinctes négatives : $-\xi \omega_0 \pm \omega_0 \sqrt{\xi^2 - 1}$ | $e^{-\xi \omega_0 t} [ x_0 \cosh(\omega_d t) + \frac{\dot{x}_0 + \xi \omega_0 x_0}{\omega_d} \sinh(\omega_d t) ]$ avec $\omega_d = \omega_0 \sqrt{\xi^2 - 1}$ | retour sans oscillation, plus lent que le critique |
+
+---
+
+## 8. Points de vigilance pour la résolution
+
+- La distinction entre les deux définitions de $\omega_d$ est essentielle. Pour le régime sous-amorti, $\omega_d^2 = \omega_0^2 (1 - \xi^2)$ ; pour le régime sur-amorti, $\omega_d^2 = \omega_0^2 (\xi^2 - 1)$. Une confusion entre ces deux expressions conduit à des solutions mathématiquement incorrectes (arguments complexes ou signes erronés).
+- La dérivation de la solution hyperbolique (16) nécessite d’appliquer rigoureusement la règle de dérivation d’un produit, sans omettre le terme provenant de la dérivée de l’exponentielle $e^{-\xi \omega_0 t}$.
+- L’écriture $x(t) = (A + Bt) e^{-\omega_0 t}$ pour le cas critique ne doit pas être confondue avec la forme générale du cas à racines distinctes. Elle est spécifique à la présence d’une racine double.
+- Les conditions initiales doivent systématiquement être appliquées à la solution générale *avant* de substituer les constantes. Une erreur fréquente consiste à évaluer les constantes sur la forme finale plutôt que sur la forme générale.
+
+---
+
+## 9. Questions pour approfondir la réflexion
+
+1.  Pourquoi le régime critique offre-t-il le retour le plus rapide à l’équilibre sans oscillation ? On pourra comparer les décroissances asymptotiques des trois régimes en étudiant le comportement de $x(t)$ lorsque $t$ est grand.
+
+2.  Un système sur-amorti possède un temps de réponse plus long qu’un système critique. Expliquer ce résultat à la fois sur le plan mathématique (position des pôles) et sur le plan physique (rôle des forces dissipatives).
+
+3.  Que devient la solution (20) dans la limite $\xi \to +\infty$ ? Montrer que le déplacement $x(t)$ tend vers une fonction constante (ou très lentement variable) et interpréter ce résultat.
+
+4.  Dans le cas particulier $x_0 = 0$ et $\dot{x}_0 \neq 0$, la solution pour le régime critique présente un maximum en $t = 1/\omega_0$. Déterminer la valeur de ce maximum et la comparer à celle obtenue dans le régime sur-amorti pour les mêmes conditions initiales.
+
+5.  Établir le lien entre la solution (20) et la forme exponentielle (14). Cette réécriture met-elle en évidence des propriétés particulières (par exemple, la symétrie des coefficients) ?
+
+---
+
+*Fin du corrigé.*
