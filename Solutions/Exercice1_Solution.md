@@ -17,11 +17,28 @@ On introduit la pulsation propre non amortie \(\omega_0 = \sqrt{k/m}\) et le fac
 ```
 
 Le paramètre \(\xi\) est adimensionnel. Sa valeur détermine la nature du régime vibratoire :
+```math
+- \(0 < \xi < 1\) : régime sous-amorti  
+  \[
+  x(t) = e^{-\xi \omega_0 t}\big(A\cos(\omega_d t) + B\sin(\omega_d t)\big)
+  \]
+```
+  ➜ oscillations pseudo-périodiques  
+  ➜ enveloppe exponentielle décroissante \(e^{-\xi \omega_0 t}\)
 
-- \(0 < \xi < 1\) : régime sous-amorti (oscillations amorties).
-- \(\xi = 1\) : régime critique (retour le plus rapide sans oscillation).
-- \(\xi > 1\) : régime sur-amorti (retour apériodique plus lent).
+```math
+- \(\xi = 1\) : régime critique
+```
+  ➜ racine double de l’équation caractéristique  
+  ➜ solution de la forme \(x(t) = (A + Bt)e^{-\omega_0 t}\)  
+  ➜ retour à l’équilibre le plus rapide sans oscillation
 
+```math
+- \(\xi > 1\) : régime sur-amorti
+```
+  ➜ deux racines réelles distinctes de l’équation caractéristique  
+  ➜ solution combinaison de décroissances exponentielles  
+  ➜ retour monotone vers l’équilibre, plus lent que le régime critique
 ## 2. Résolution par l’équation caractéristique
 
 La solution de l’équation canonique est cherchée sous la forme \(x(t) = e^{r t}\). En substituant cette expression dans l’équation différentielle, on obtient l’équation caractéristique :
