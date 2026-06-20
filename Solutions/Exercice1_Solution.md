@@ -2,7 +2,7 @@
 
 ## 1. Mise en équation et paramètres caractéristiques
 
-On considère un système mécanique élémentaire constitué d’une masse $$m$$, d’un ressort de raideur $$k$$ et d’un amortisseur visqueux de coefficient $$c$$. Le déplacement de la masse, repéré par rapport à sa position d’équilibre statique, est noté $$x(t)$$.
+On considère un système mécanique élémentaire constitué d’une masse \(m\), d’un ressort de raideur \(k\) et d’un amortisseur visqueux de coefficient \(c\). Le déplacement de la masse, repéré par rapport à sa position d’équilibre statique, est noté \(x(t)\).
 
 L’équation différentielle du mouvement, obtenue par application du principe fondamental de la dynamique, s’écrit :
 
@@ -10,21 +10,21 @@ L’équation différentielle du mouvement, obtenue par application du principe 
 m \ddot{x} + c \dot{x} + k x = 0
 ```
 
-On introduit la pulsation propre non amortie $$\omega_0 = \sqrt{k/m}$$ et le facteur d’amortissement réduit $$\xi = \dfrac{c}{2 m \omega_0}$$. L’équation précédente se réduit alors à la forme canonique :
+On introduit la pulsation propre non amortie \(\omega_0 = \sqrt{k/m}\) et le facteur d’amortissement réduit \(\xi = \dfrac{c}{2 m \omega_0}\). L’équation précédente se réduit alors à la forme canonique :
 
 ```math
 \ddot{x} + 2 \xi \omega_0 \dot{x} + \omega_0^2 x = 0
 ```
 
-Le paramètre $$\xi$$ est adimensionnel. Sa valeur détermine la nature du régime vibratoire :
+Le paramètre \(\xi\) est adimensionnel. Sa valeur détermine la nature du régime vibratoire :
 
-- $$0 < \xi < 1$$ : régime sous-amorti (oscillations amorties).
-- $$\xi = 1$$ : régime critique (retour le plus rapide sans oscillation).
-- $$\xi > 1$$ : régime sur-amorti (retour apériodique plus lent).
+- \(0 < \xi < 1\) : régime sous-amorti (oscillations amorties).
+- \(\xi = 1\) : régime critique (retour le plus rapide sans oscillation).
+- \(\xi > 1\) : régime sur-amorti (retour apériodique plus lent).
 
 ## 2. Résolution par l’équation caractéristique
 
-La solution de l’équation canonique est cherchée sous la forme $$x(t) = e^{r t}$$. En substituant cette expression dans l’équation différentielle, on obtient l’équation caractéristique :
+La solution de l’équation canonique est cherchée sous la forme \(x(t) = e^{r t}\). En substituant cette expression dans l’équation différentielle, on obtient l’équation caractéristique :
 
 ```math
 r^2 + 2 \xi \omega_0 r + \omega_0^2 = 0
@@ -42,13 +42,13 @@ Les racines sont données par :
 r_{1,2} = -\xi \omega_0 \pm \omega_0 \sqrt{\xi^2 - 1}
 ```
 
-La nature de ces racines dépend du signe de $$\xi^2 - 1$$. Les cas $$\xi = 1$$ et $$\xi > 1$$ sont détaillés ci-dessous.
+La nature de ces racines dépend du signe de \(\xi^2 - 1\). Les cas \(\xi = 1\) et \(\xi > 1\) sont détaillés ci-dessous.
 
-## 3. Régime critique $$\xi = 1$$
+## 3. Régime critique \(\xi = 1\)
 
 ### 3.1 Racines et forme de la solution
 
-Pour $$\xi = 1$$, l’équation caractéristique devient :
+Pour \(\xi = 1\), l’équation caractéristique devient :
 
 ```math
 (r + \omega_0)^2 = 0
@@ -66,11 +66,11 @@ La solution générale de l’équation différentielle est alors :
 x(t) = (A + B t)e^{-\omega_0 t}
 ```
 
-où $$A$$ et $$B$$ sont des constantes d’intégration.
+où \(A\) et \(B\) sont des constantes d’intégration.
 
 ### 3.2 Détermination des constantes
 
-La condition initiale sur le déplacement, $$x(0) = x_0$$, donne immédiatement :
+La condition initiale sur le déplacement, \(x(0) = x_0\), donne immédiatement :
 
 ```math
 A = x_0
@@ -88,7 +88,7 @@ soit encore :
 \dot{x}(t) = e^{-\omega_0 t} \left[ B - \omega_0 (A + Bt) \right]
 ```
 
-En évaluant à $$t = 0$$ et en utilisant $$\dot{x}(0) = \dot{x}_0$$, on obtient :
+En évaluant à \(t = 0\) et en utilisant \(\dot{x}(0) = \dot{x}_0\), on obtient :
 
 ```math
 \dot{x}_0 = B - \omega_0 A
@@ -114,13 +114,13 @@ ou, après réorganisation :
 x(t) = e^{-\omega_0 t}\left[x_0(1 + \omega_0 t) + \dot{x}_0 t\right]
 ```
 
-> **Interprétation physique** : le terme exponentiel assure une décroissance rapide vers zéro. Le facteur $$(1 + \omega_0 t)$$ est la signature de la racine double ; il traduit le fait que le système revient à l’équilibre sans oscillation, plus rapidement que dans tout régime sur-amorti.
+> **Interprétation physique** : le terme exponentiel assure une décroissance rapide vers zéro. Le facteur \((1 + \omega_0 t)\) est la signature de la racine double ; il traduit le fait que le système revient à l’équilibre sans oscillation, plus rapidement que dans tout régime sur-amorti.
 
-## 4. Régime sur-amorti $$\xi > 1$$
+## 4. Régime sur-amorti \(\xi > 1\)
 
-### 4.1 Racines et introduction de $$\omega_d$$
+### 4.1 Racines et introduction de \(\omega_d\)
 
-Pour $$\xi > 1$$, le discriminant est strictement positif. Les deux racines sont réelles et distinctes. On définit :
+Pour \(\xi > 1\), le discriminant est strictement positif. Les deux racines sont réelles et distinctes. On définit :
 
 ```math
 \omega_d = \omega_0 \sqrt{\xi^2 - 1} > 0
@@ -136,7 +136,7 @@ r_1 = -\xi \omega_0 + \omega_d
 r_2 = -\xi \omega_0 - \omega_d
 ```
 
-Ces deux racines sont strictement négatives car $$\xi \omega_0 > \omega_d$$. La solution générale devient :
+Ces deux racines sont strictement négatives car \(\xi \omega_0 > \omega_d\). La solution générale devient :
 
 ```math
 x(t) = C_1 e^{r_1 t} + C_2 e^{r_2 t}
@@ -166,11 +166,11 @@ La solution se réécrit alors :
 x(t) = e^{-\xi \omega_0 t}\left(A \cosh(\omega_d t) + B \sinh(\omega_d t)\right)
 ```
 
-Les constantes $$A$$ et $$B$$ sont liées à $$C_1$$ et $$C_2$$ par $$A = C_1 + C_2$$ et $$B = C_1 - C_2$$.
+Les constantes \(A\) et \(B\) sont liées à \(C_1\) et \(C_2\) par \(A = C_1 + C_2\) et \(B = C_1 - C_2\).
 
 ### 4.3 Détermination des constantes
 
-La condition initiale $$x(0) = x_0$$ donne :
+La condition initiale \(x(0) = x_0\) donne :
 
 ```math
 A = x_0
@@ -187,13 +187,13 @@ La vitesse s’obtient en dérivant la solution précédente :
 \Big]
 ```
 
-En évaluant à $$t = 0$$, on obtient :
+En évaluant à \(t = 0\), on obtient :
 
 ```math
 \dot{x}_0 = -\xi \omega_0 A + \omega_d B
 ```
 
-En substituant $$A = x_0$$, il vient :
+En substituant \(A = x_0\), il vient :
 
 ```math
 B = \frac{\dot{x}_0 + \xi \omega_0 x_0}{\omega_d}
@@ -212,23 +212,23 @@ x(t) = e^{-\xi \omega_0 t}
 \right]
 ```
 
-avec $$\omega_d = \omega_0\sqrt{\xi^2 - 1}$$.
+avec \(\omega_d = \omega_0\sqrt{\xi^2 - 1}\).
 
-> **Remarque importante** : la pulsation $$\omega_d$$ définie ici est réelle positive pour $$\xi > 1$$. Elle ne doit pas être confondue avec la pseudo-pulsation du régime sous-amorti, définie par $$\omega_d = \omega_0\sqrt{1-\xi^2}$$, qui n’est réelle que pour $$\xi < 1$$.
+> **Remarque importante** : la pulsation \(\omega_d\) définie ici est réelle positive pour \(\xi > 1\). Elle ne doit pas être confondue avec la pseudo-pulsation du régime sous-amorti, définie par \(\omega_d = \omega_0\sqrt{1-\xi^2}\), qui n’est réelle que pour \(\xi < 1\).
 
 ## 5. Commentaires physiques et cas particuliers
 
 ### 5.1 Comparaison des régimes
 
-- Dans le régime critique, la solution décroît vers zéro sans oscillation, et le facteur $$t e^{-\omega_0 t}$$ assure un retour à l’équilibre plus rapide que pour tout $$\xi > 1$$.
+- Dans le régime critique, la solution décroît vers zéro sans oscillation, et le facteur \(t e^{-\omega_0 t}\) assure un retour à l’équilibre plus rapide que pour tout \(\xi > 1\).
 - Dans le régime sur-amorti, la solution est une combinaison de deux exponentielles décroissantes.
-- Le terme dominant à long terme est $$e^{r_1 t} = e^{(-\xi\omega_0 + \omega_d)t}$$.
-- Lorsque $$\xi$$ augmente, $$\omega_d \to \xi\omega_0$$ et l’exposant tend vers 0 ; le retour à l’équilibre devient donc de plus en plus lent.
+- Le terme dominant à long terme est \(e^{r_1 t} = e^{(-\xi\omega_0 + \omega_d)t}\).
+- Lorsque \(\xi\) augmente, \(\omega_d \to \xi\omega_0\) et l’exposant tend vers 0 ; le retour à l’équilibre devient donc de plus en plus lent.
 - Un amortissement excessif ralentit paradoxalement la réponse du système.
 
 ### 5.2 Cas particuliers
 
-**Déplacement initial non nul, vitesse initiale nulle** $$(\dot{x}_0 = 0)$$
+**Déplacement initial non nul, vitesse initiale nulle** \((\dot{x}_0 = 0)\)
 
 Régime critique :
 
@@ -245,7 +245,7 @@ x_{\text{sur}}(t) = x_0 e^{-\xi \omega_0 t}
 \right]
 ```
 
-**Déplacement initial nul, vitesse initiale non nulle** $$(x_0 = 0)$$
+**Déplacement initial nul, vitesse initiale non nulle** \((x_0 = 0)\)
 
 Régime critique :
 
@@ -277,34 +277,34 @@ Les figures suivantes illustrent les résultats obtenus.
 
 
 
-*Figure 1 – Comparaison des réponses temporelles pour $$\xi = 0.2$$ (sous-amorti), $$\xi = 1$$ (critique) et $$\xi = 2$$ (sur-amorti), avec $$x_0 = 1$$ m, $$\dot{x}_0 = 0$$ et $$\omega_0 = 1$$ rad/s.*
+*Figure 1 – Comparaison des réponses temporelles pour \(\xi = 0.2\) (sous-amorti), \(\xi = 1\) (critique) et \(\xi = 2\) (sur-amorti), avec \(x_0 = 1\) m, \(\dot{x}_0 = 0\) et \(\omega_0 = 1\) rad/s.*
 
 
 
-*Figure 2 – Parties réelle et imaginaire des racines $$r_1$$ et $$r_2$$ en fonction du facteur d’amortissement $$\xi$$.* 
+*Figure 2 – Parties réelle et imaginaire des racines \(r_1\) et \(r_2\) en fonction du facteur d’amortissement \(\xi\).* 
 
 ## 7. Synthèse des résultats
 
-| Régime | Valeur de $$\xi$$ | Racines | Solution $$x(t)$$ | Comportement |
+| Régime | Valeur de \(\xi\) | Racines | Solution \(x(t)\) | Comportement |
 |--------|---------------------|---------|---------------------|--------------|
-| Sous-amorti | $$0 < \xi < 1$$ | $$-\xi \omega_0 \pm i\omega_0\sqrt{1-\xi^2}$$ | $$e^{-\xi \omega_0 t}\left[x_0\cos(\omega_d t) + \dfrac{\dot{x}_0 + \xi\omega_0 x_0}{\omega_d}\sin(\omega_d t)\right]$$, avec $$\omega_d = \omega_0\sqrt{1-\xi^2}$$ | Oscillations amorties |
-| Critique | $$\xi = 1$$ | $$-\omega_0$$ (double) | $$e^{-\omega_0 t}[x_0(1+\omega_0 t) + \dot{x}_0 t]$$ | Retour le plus rapide sans oscillation |
-| Sur-amorti | $$\xi > 1$$ | $$-\xi\omega_0 \pm \omega_0\sqrt{\xi^2-1}$$ | $$e^{-\xi\omega_0 t}\left[x_0\cosh(\omega_d t) + \dfrac{\dot{x}_0 + \xi\omega_0 x_0}{\omega_d}\sinh(\omega_d t)\right]$$, avec $$\omega_d = \omega_0\sqrt{\xi^2-1}$$ | Retour sans oscillation, plus lent que le critique |
+| Sous-amorti | \(0 < \xi < 1\) | \(-\xi \omega_0 \pm i\omega_0\sqrt{1-\xi^2}\) | \(e^{-\xi \omega_0 t}\left[x_0\cos(\omega_d t) + \dfrac{\dot{x}_0 + \xi\omega_0 x_0}{\omega_d}\sin(\omega_d t)\right]\), avec \(\omega_d = \omega_0\sqrt{1-\xi^2}\) | Oscillations amorties |
+| Critique | \(\xi = 1\) | \(-\omega_0\) (double) | \(e^{-\omega_0 t}[x_0(1+\omega_0 t) + \dot{x}_0 t]\) | Retour le plus rapide sans oscillation |
+| Sur-amorti | \(\xi > 1\) | \(-\xi\omega_0 \pm \omega_0\sqrt{\xi^2-1}\) | \(e^{-\xi\omega_0 t}\left[x_0\cosh(\omega_d t) + \dfrac{\dot{x}_0 + \xi\omega_0 x_0}{\omega_d}\sinh(\omega_d t)\right]\), avec \(\omega_d = \omega_0\sqrt{\xi^2-1}\) | Retour sans oscillation, plus lent que le critique |
 
 ## 8. Points de vigilance
 
-> **Attention à la définition de $$\omega_d$$** : la pulsation $$\omega_d$$ n’a pas la même expression dans les régimes sous-amorti et sur-amorti. Une confusion entre $$\omega_0\sqrt{1-\xi^2}$$ et $$\omega_0\sqrt{\xi^2-1}$$ conduit à des solutions mathématiquement incorrectes.
+> **Attention à la définition de \(\omega_d\)** : la pulsation \(\omega_d\) n’a pas la même expression dans les régimes sous-amorti et sur-amorti. Une confusion entre \(\omega_0\sqrt{1-\xi^2}\) et \(\omega_0\sqrt{\xi^2-1}\) conduit à des solutions mathématiquement incorrectes.
 
-> **Dérivation des expressions hyperboliques** : il ne faut pas omettre le terme provenant de la dérivée de l’exponentielle $$e^{-\xi \omega_0 t}$$ lors du calcul de la vitesse. La règle de dérivation du produit doit être appliquée rigoureusement.
+> **Dérivation des expressions hyperboliques** : il ne faut pas omettre le terme provenant de la dérivée de l’exponentielle \(e^{-\xi \omega_0 t}\) lors du calcul de la vitesse. La règle de dérivation du produit doit être appliquée rigoureusement.
 
-> **Racine double** : le cas $$\xi = 1$$ est particulier. La solution $$(A + Bt)e^{-\omega_0 t}$$ ne doit pas être confondue avec la forme générale pour racines distinctes.
+> **Racine double** : le cas \(\xi = 1\) est particulier. La solution \((A + Bt)e^{-\omega_0 t}\) ne doit pas être confondue avec la forme générale pour racines distinctes.
 
 ## 9. Questions pour approfondir
 
 1. Pourquoi le régime critique offre-t-il le retour le plus rapide à l’équilibre sans oscillation ? Comparer les décroissances asymptotiques des trois régimes.
 2. Un système sur-amorti possède un temps de réponse plus long qu’un système critique. Expliquer ce résultat à la fois sur le plan mathématique (position des pôles) et sur le plan physique (rôle des forces dissipatives).
-3. Que devient la solution du régime sur-amorti dans la limite $$\xi \to +\infty$$ ? Montrer que le déplacement tend vers une fonction constante, ou très lentement variable, et interpréter ce résultat.
-4. Dans le cas particulier $$x_0 = 0$$ et $$\dot{x}_0 \neq 0$$, la solution critique $$x(t) = \dot{x}_0 t e^{-\omega_0 t}$$ présente un maximum en $$t = 1/\omega_0$$. Déterminer la valeur de ce maximum et la comparer à celle du régime sur-amorti pour les mêmes conditions initiales.
+3. Que devient la solution du régime sur-amorti dans la limite \(\xi \to +\infty\) ? Montrer que le déplacement tend vers une fonction constante, ou très lentement variable, et interpréter ce résultat.
+4. Dans le cas particulier \(x_0 = 0\) et \(\dot{x}_0 \neq 0\), la solution critique \(x(t) = \dot{x}_0 t e^{-\omega_0 t}\) présente un maximum en \(t = 1/\omega_0\). Déterminer la valeur de ce maximum et la comparer à celle du régime sur-amorti pour les mêmes conditions initiales.
 
 ## 10. Annexe : Code Python pour les figures
 
@@ -387,7 +387,7 @@ plt.show()
 
 Pour un bon rendu dans GitHub :
 
-- utiliser les équations en bloc avec la syntaxe ```math ... ``` ; GitHub prend en charge ce format pour les expressions mathématiques en Markdown [1]
-- garder les expressions courtes en ligne avec $$ ... $$ dans le texte source seulement si ton pipeline les convertit correctement ; sur GitHub, le plus sûr reste souvent l’usage de `$...$` pour l’inline et des blocs `math` pour l’affichage [1][2]
-- éviter de mélanger HTML brut et équations LaTeX dans le même paragraphe, car cela peut perturber le rendu Markdown [1]
-- vérifier l’aperçu directement dans le dépôt GitHub après publication, car le rendu local d’un éditeur Markdown peut différer de celui de GitHub [2]
+- utiliser les équations en bloc avec la syntaxe ```math ... ``` ; GitHub prend en charge ce format pour les expressions mathématiques en Markdown [github](https://github.com/sambacha/github-flavoured-latex)
+- garder les expressions courtes en ligne avec \( ... \) dans le texte source seulement si ton pipeline les convertit correctement ; sur GitHub, le plus sûr reste souvent l’usage de `$...$` pour l’inline et des blocs `math` pour l’affichage [github](https://github.com/STAT545-UBC/Discussion/issues/102)
+- éviter de mélanger HTML brut et équations LaTeX dans le même paragraphe, car cela peut perturber le rendu Markdown [github](https://github.com/sambacha/github-flavoured-latex)
+- vérifier l’aperçu directement dans le dépôt GitHub après publication, car le rendu local d’un éditeur Markdown peut différer de celui de GitHub [github](https://github.com/STAT545-UBC/Discussion/issues/102)
