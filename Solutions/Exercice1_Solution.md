@@ -301,11 +301,7 @@ Cette écriture fait apparaître explicitement les deux constantes d’intégrat
 
 Afin de visualiser les différences qualitatives entre les régimes, on peut superposer les réponses $x(t)$ pour les trois cas ($0 < \xi < 1$, $\xi = 1$ et $\xi > 1$), pour des conditions initiales identiques, par exemple $x_0 > 0$ et $\dot{x}_0 = 0$.
 
-[Figure 1 : Évolution temporelle du déplacement pour les trois régimes d’amortissement (à générer ultérieurement).]
+[Figure 1 : Évolution temporelle du déplacement pour les trois régimes d’amortissement (..Figures/Ex1Sol.png).]
 Description sommaire : la courbe correspondant à $\xi < 1$ présente des oscillations d’amplitude décroissante ; la courbe $\xi = 1$ décroît rapidement sans oscillation ; la courbe $\xi > 1$ décroît plus lentement que la précédente et ne présente pas non plus d’oscillation.
 
-[Figure 2 : Allure des racines $r_1$ et $r_2$ en fonction de $\xi$ (à générer ultérieurement).]
-Description sommaire : pour $\xi = 0$, les racines sont imaginaires pures ; pour $0 < \xi < 1$, elles sont complexes conjuguées à partie réelle négative ; pour $\xi = 1$, elles sont confondues sur l’axe réel négatif ; pour $\xi > 1$, elles sont réelles, distinctes et négatives.
-
-Les codes de génération de ces figures peuvent être fournis sur demande, dans le langage de votre choix (Python/Matplotlib, GNU Octave, etc.).
 
